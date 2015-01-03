@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Europass ErrCode</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+
+    <div class="page-header">
+        <h1>ErrCode <small>${model.errcode}</small></h1>
+        <p class="lead">
+            <% if(model.errObj) { %>
+                Found in <code>${"/" + model?.errObj?.fileHost + model?.errObj?.filePath + "/" + model?.errObj?.fileName}</code>,
+                line ${model?.errObj?.fileLineNumber}
+            <% } else { %>
+                Not found!
+            <% } %>
+        </p>
+    </div>
+    <% if(model.errObj) { %>
+    <pre style="overflow:auto;">${model?.errObj?.headline}</pre>
+    <pre style="overflow:auto;">${model?.errObj?.stackTrace}</pre>
+    <% } %>
+    <div>&nbsp;</div>
+</div>
+</body>
+</html>
